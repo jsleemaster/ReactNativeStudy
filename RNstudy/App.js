@@ -1,30 +1,31 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+// /**
+//  * Sample React Native App
+//  * https://github.com/facebook/react-native
+//  *
+//  * @format
+//  * @flow strict-local
+//  */
 
-import React from 'react';
+import React, { Component } from 'react';
 // import type { Node } from 'react';
-// import {
-//   SafeAreaView,
-//   ScrollView,
-//   StatusBar,
-//   StyleSheet,
-//   Text,
-//   useColorScheme,
-//   View,
-// } from 'react-native';
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  useColorScheme,
+  View,
+  Image,
+} from 'react-native';
 
-// import {
-//   Colors,
-//   DebugInstructions,
-//   Header,
-//   LearnMoreLinks,
-//   ReloadInstructions,
-// } from 'react-native/Libraries/NewAppScreen';
+import {
+  Colors,
+  DebugInstructions,
+  Header,
+  LearnMoreLinks,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
 
 // const Section = ({ children, title }): Node => {
 //   const isDarkMode = useColorScheme() === 'dark';
@@ -52,6 +53,21 @@ import React from 'react';
 //   );
 // };
 
+class Love extends Component {
+  render() {
+    let Image;
+    if (this.props.type === "one") {
+      Image = require("./assets/love.jpg");
+    } else {
+      Image = require("./assets/love2.jpg");
+    }
+    return (
+      <View>
+        <Image source={Image} style={{ width: 100, height: 100 }}></Image>
+      </View>
+    )
+  }
+}
 const App = () => {
   // const isDarkMode = useColorScheme() === 'dark';
 
@@ -61,7 +77,9 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.hello}>Hello World</Text>
+      <Text style={styles.hello}>안녕 세상아~</Text>
+      <Love type="one"></Love>
+      <Love type="two"></Love>
     </View>
     // <SafeAreaView style={backgroundStyle}>
     //   <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
