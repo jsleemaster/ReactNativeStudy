@@ -52,21 +52,22 @@ import {
 //     </View>
 //   );
 // };
-
 class Love extends Component {
   render() {
-    let Image;
+
+    let image;
     if (this.props.type === "one") {
-      Image = require("./assets/love.jpg");
+      image = require("./assets/love.jpg");
     } else {
-      Image = require("./assets/love2.jpg");
+      image = require("./assets/love2.jpg");
     }
     return (
       <View>
-        <Image source={Image} style={{ width: 100, height: 100 }}></Image>
+        <Image source={image} style={{ width: 100, height: 100 }}></Image>
       </View>
     )
   }
+
 }
 const App = () => {
   // const isDarkMode = useColorScheme() === 'dark';
@@ -78,7 +79,10 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.hello}>안녕 세상아~</Text>
-      <Love type="one"></Love>
+      <View style={{ flexDirection: 'row' }}>
+        <Love type="one"></Love>
+        <Text>2021.02.14 ~</Text>
+      </View>
       <Love type="two"></Love>
     </View>
     // <SafeAreaView style={backgroundStyle}>
