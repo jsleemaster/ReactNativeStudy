@@ -1,13 +1,6 @@
-// /**
-//  * Sample React Native App
-//  * https://github.com/facebook/react-native
-//  *
-//  * @format
-//  * @flow strict-local
-//  */
 
 import React, { Component } from 'react';
-// import type { Node } from 'react';
+
 import {
   SafeAreaView,
   ScrollView,
@@ -19,39 +12,16 @@ import {
   Image,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-// const Section = ({ children, title }): Node => {
-//   const isDarkMode = useColorScheme() === 'dark';
-//   return (
-//     <View style={styles.sectionContainer}>
-//       <Text
-//         style={[
-//           styles.sectionTitle,
-//           {
-//             color: isDarkMode ? Colors.white : Colors.black,
-//           },
-//         ]}>
-//         {title}
-//       </Text>
-//       <Text
-//         style={[
-//           styles.sectionDescription,
-//           {
-//             color: isDarkMode ? Colors.light : Colors.dark,
-//           },
-//         ]}>
-//         {children}
-//       </Text>
-//     </View>
-//   );
-// };
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // justifyContent: 'center',
+    // alignItems: 'center'
+  },
+  hello: {
+    color: 'red',
+  }
+});
 class Love extends Component {
   render() {
 
@@ -70,76 +40,24 @@ class Love extends Component {
 
 }
 const App = () => {
-  // const isDarkMode = useColorScheme() === 'dark';
-
-  // const backgroundStyle = {
-  //   backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  // };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.hello}>안녕 세상아~</Text>
+      {/* <Text style={styles.hello}>안녕 세상아~</Text>
       <View style={{ flexDirection: 'row' }}>
         <Love type="one"></Love>
         <Text>2021.02.14 ~</Text>
       </View>
-      <Love type="two"></Love>
+      <Love type="two"></Love> */}
+      {/* 상위 flex 속해 있는 하위 flex는 태그 갯수에 따라 차지하는 비율의 최대가 정해지고 
+          입력되는 값에 따라 비율을 정할 수 있다.
+      */}
+      <View style={{ flex: 1, backgroundColor: 'red' }}></View>
+      <View style={{ flex: 2, backgroundColor: 'blue' }}></View>
+      <View style={{ flex: 3, backgroundColor: 'orange' }}></View>
     </View>
-    // <SafeAreaView style={backgroundStyle}>
-    //   <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-    //   <ScrollView
-    //     contentInsetAdjustmentBehavior="automatic"
-    //     style={backgroundStyle}>
-    //     <Header />
-    //     <View
-    //       style={{
-    //         backgroundColor: isDarkMode ? Colors.black : Colors.white,
-    //       }}>
-    //       <Section title="Step One">
-    //         Edit <Text style={styles.highlight}>App.js</Text> to change this
-    //         screen and then come back to see your edits.
-    //       </Section>
-    //       <Section title="See Your Changes">
-    //         <ReloadInstructions />
-    //       </Section>
-    //       <Section title="Debug">
-    //         <DebugInstructions />
-    //       </Section>
-    //       <Section title="Learn More">
-    //         Read the docs to discover what to do next:
-    //       </Section>
-    //       <LearnMoreLinks />
-    //     </View>
-    //   </ScrollView>
-    // </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  hello: {
-    color: 'red',
-  }
-  // sectionContainer: {
-  //   marginTop: 32,
-  //   paddingHorizontal: 24,
-  // },
-  // sectionTitle: {
-  //   fontSize: 24,
-  //   fontWeight: '600',
-  // },
-  // sectionDescription: {
-  //   marginTop: 8,
-  //   fontSize: 18,
-  //   fontWeight: '400',
-  // },
-  // highlight: {
-  //   fontWeight: '700',
-  // },
-});
 
 export default App;
