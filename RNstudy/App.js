@@ -43,7 +43,8 @@ class Love extends Component {
 const App = () => {
 
   return (
-    <View style={styles.container}>
+    // 위에 탭쪽을 자동으로 비워줌
+    <SafeAreaView style={styles.container}>
       {/* <Text style={styles.hello}>안녕 세상아~</Text>
       <View style={{ flexDirection: 'row' }}>
         <Love type="one"></Love>
@@ -56,7 +57,7 @@ const App = () => {
       <View style={{ flex: 1, backgroundColor: 'red' }}></View>
       <View style={{ flex: 2, backgroundColor: 'blue' }}></View>
       <View style={{ flex: 3, backgroundColor: 'orange' }}></View>
-    </View>
+    </SafeAreaView>
   );
 };
 
