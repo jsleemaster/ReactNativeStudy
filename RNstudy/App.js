@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center', //flex-end , flex-start, center , space-between, space-around, space-evenly
-    // alignItems: 'center'
+    alignItems: 'center' // flex-start, flex-end , stretch
   },
   hello: {
     color: 'red',
