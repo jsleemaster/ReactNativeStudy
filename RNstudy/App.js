@@ -27,6 +27,7 @@ import {
   useColorScheme,
   View,
   Image,
+  Button
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -58,10 +59,20 @@ class Love extends Component {
 
 }
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => { //home
   return (
     <View style={styles.container}>
       <Text>Home</Text>
+      <Button title="프로필 페이지로 이동" onPress={() => { navigation.navigate('Profile') }} />
+      {/* navigate('name') Stack.Screen 에 name 으로 지정한 값을 넣으면 그 페이지로 이동한다. */}
+      {/* props로 navigation 을 보내줘야한다. */}
+    </View>
+  )
+}
+const ProfileScreen = () => { //home
+  return (
+    <View style={styles.container}>
+      <Text>Profile</Text>
     </View>
   )
 }
@@ -76,6 +87,11 @@ const App = () => {
           name="Home"
           component={HomeScreen}
           options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{ title: 'Profile' }}
         />
         {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
       </Stack.Navigator>
