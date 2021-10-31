@@ -63,21 +63,20 @@ const HomeScreen = ({ navigation }) => { //home
   return (
     <View style={styles.container}>
       <Text>Home</Text>
-      <Button title="프로필 페이지로 이동" onPress={() => { navigation.navigate('Profile') }} />
+      <Button title="프로필 페이지로 이동" onPress={() => { navigation.navigate('Profile', { name: 'Sunmyoung Lee' }) }} />
       {/* navigate('name') Stack.Screen 에 name 으로 지정한 값을 넣으면 그 페이지로 이동한다. */}
       {/* props로 navigation 을 보내줘야한다. */}
     </View>
   )
 }
-const ProfileScreen = () => { //home
+const ProfileScreen = ({ navigation, route }) => { //Profile, route를 받아오는 방법
   return (
     <View style={styles.container}>
-      <Text>Profile</Text>
+      <Text>This is {route.params.name}</Text>
     </View>
   )
 }
 const App = () => {
-
   return (
     // SafeAreaView : 위에 탭쪽을 자동으로 비워줌
     // <SafeAreaView style={styles.container}>
