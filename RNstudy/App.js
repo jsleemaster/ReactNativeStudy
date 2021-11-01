@@ -73,6 +73,8 @@ const ProfileScreen = ({ navigation, route }) => { //Profile, route를 받아오
   return (
     <View style={styles.container}>
       <Text>This is {route.params.name}</Text>
+      <Button title="디테일 페이지.." onPress={() => { navigation.push('Profile') }}></Button>
+      {/* 계속 새로운 페이지를 쌓으면서 이동*/}
     </View>
   )
 }
