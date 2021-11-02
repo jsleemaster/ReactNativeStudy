@@ -73,7 +73,10 @@ const ProfileScreen = ({ navigation, route }) => { //Profile, route를 받아오
   return (
     <View style={styles.container}>
       <Text>This is {route.params.name}</Text>
-      <Button title="디테일 페이지.." onPress={() => { navigation.push('Profile') }}></Button>
+      <Button title="디테일 페이지.." onPress={() => { navigation.push('Profile', { name: 'Next' }) }}></Button>
+      <Button title="Go back" onPress={() => navigation.goBack()}></Button>
+      <Button title="Pop To Top" onPress={() => navigation.popToTop()}></Button>
+
       {/* 계속 새로운 페이지를 쌓으면서 이동*/}
     </View>
   )
