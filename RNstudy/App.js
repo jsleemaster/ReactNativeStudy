@@ -70,13 +70,17 @@ const HomeScreen = ({ navigation }) => { //home
   )
 }
 const ProfileScreen = ({ navigation, route }) => { //Profile, route를 받아오는 방법
+
+  const { name } = route.params
+
   return (
     <View style={styles.container}>
       <Text>This is {route.params.name}</Text>
-      <Button title="디테일 페이지.." onPress={() => { navigation.push('Profile', { name: 'Next' }) }}></Button>
+      <Text>JSON 형태 변환 -> {JSON.stringify(name)}</Text>
+      <Text>JSON 형태 미변환 -> {name}</Text>
+      <Button title="디테일 페이지.." onPress={() => { navigation.push('Profile', { name: name }) }}></Button>
       <Button title="Go back" onPress={() => navigation.goBack()}></Button>
       <Button title="Pop To Top" onPress={() => navigation.popToTop()}></Button>
-
       {/* 계속 새로운 페이지를 쌓으면서 이동*/}
     </View>
   )
