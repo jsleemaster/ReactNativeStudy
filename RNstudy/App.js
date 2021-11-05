@@ -76,8 +76,8 @@ const ProfileScreen = ({ navigation, route }) => { //Profile, route를 받아오
   return (
     <View style={styles.container}>
       <Text>This is {route.params.name}</Text>
-      <Text>JSON 형태 변환 -> {JSON.stringify(name)}</Text>
-      <Text>JSON 형태 미변환 -> {name}</Text>
+      {/* <Text>JSON 형태 변환 -> {JSON.stringify(name)}</Text> */}
+      <Text>{name}</Text>
       <Button title="디테일 페이지.." onPress={() => { navigation.push('Profile', { name: name }) }}></Button>
       <Button title="Go back" onPress={() => navigation.goBack()}></Button>
       <Button title="Pop To Top" onPress={() => navigation.popToTop()}></Button>
