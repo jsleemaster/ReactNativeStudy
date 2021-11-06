@@ -94,6 +94,7 @@ const App = () => {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
+          initialParams={{ itemId: 1 }}  //초기 값을 정해서 넘겨줄수있다
           options={{ title: 'Welcome' }}
         />
         <Stack.Screen
