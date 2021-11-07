@@ -63,7 +63,11 @@ const HomeScreen = ({ navigation }) => { //home
   return (
     <View style={styles.container}>
       <Text>Home</Text>
-      <Button title="프로필 페이지로 이동" onPress={() => { navigation.navigate('Profile', { name: 'Sunmyoung Lee' }) }} />
+      <Button title="프로필 페이지로 이동" onPress={() => {
+        navigation.navigate('Profile', {
+          name: 'Sunmyoung Lee',
+        })
+      }} />
       {/* navigate('name') Stack.Screen 에 name 으로 지정한 값을 넣으면 그 페이지로 이동한다. */}
       {/* props로 navigation 을 보내줘야한다. */}
     </View>
@@ -72,12 +76,14 @@ const HomeScreen = ({ navigation }) => { //home
 const ProfileScreen = ({ navigation, route }) => { //Profile, route를 받아오는 방법
 
   const { name } = route.params
+  const { itemId } = route.params
 
   return (
     <View style={styles.container}>
       <Text>This is {route.params.name}</Text>
       {/* <Text>JSON 형태 변환 -> {JSON.stringify(name)}</Text> */}
       <Text>{name}</Text>
+      <Text> 원하는 페이지의 초기값을 건네 줄 수 있다.{itemId}</Text>
       <Button title="디테일 페이지.." onPress={() => { navigation.push('Profile', { name: name }) }}></Button>
       <Button title="Go back" onPress={() => navigation.goBack()}></Button>
       <Button title="Pop To Top" onPress={() => navigation.popToTop()}></Button>
@@ -94,12 +100,12 @@ const App = () => {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          initialParams={{ itemId: 1 }}  //초기 값을 정해서 넘겨줄수있다
           options={{ title: 'Welcome' }}
         />
         <Stack.Screen
           name="Profile"
           component={ProfileScreen}
+          initialParams={{ itemId: 1000 }}  //초기 값을 정해서 넘겨줄수있다
           options={{ title: 'Profile' }}
         />
         {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
