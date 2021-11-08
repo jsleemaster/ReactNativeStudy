@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import HookScreen from './Components/Hook'
+
 const Stack = createNativeStackNavigator();
 // const MyStack = () => {
 //   return (
@@ -68,6 +70,9 @@ const HomeScreen = ({ navigation }) => { //home
           name: 'Sunmyoung Lee',
         })
       }} />
+      <Button title="Hook 을 이용하는 방법" onPress={() => {
+        navigation.navigate('Hook')
+      }} />
       {/* navigate('name') Stack.Screen 에 name 으로 지정한 값을 넣으면 그 페이지로 이동한다. */}
       {/* props로 navigation 을 보내줘야한다. */}
     </View>
@@ -107,6 +112,11 @@ const App = () => {
           component={ProfileScreen}
           initialParams={{ itemId: 1000 }}  //초기 값을 정해서 넘겨줄수있다
           options={{ title: 'Profile' }}
+        />
+        <Stack.Screen
+          name="Hook"
+          component={HookScreen}
+          options={{ title: 'Hook' }}
         />
         {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
       </Stack.Navigator>
