@@ -20,6 +20,7 @@ const Hook = () => {
     return (
         <View style={styles.flex}>
             <Text>Hooks</Text>
+            <Button title={'이름 변경'} onPress={() => setName('변경이름')}></Button>
             <Text>{name}</Text>
         </View>
     )
