@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -16,7 +16,16 @@ import {
 } from 'react-native';
 const Hook = () => {
     const [name, setName] = useState('smlee')
-
+    const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(true)
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(users => {
+                setUsers(users);
+                setLoading(false);
+            })
+    })
     return (
         <View style={styles.flex}>
             <Text>Hooks</Text>
