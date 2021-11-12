@@ -12,7 +12,8 @@ import {
     useColorScheme,
     View,
     Image,
-    Button
+    Button,
+    FlatList,
 } from 'react-native';
 const Hook = () => {
     const [name, setName] = useState('smlee')
@@ -31,6 +32,10 @@ const Hook = () => {
             <Text>Hooks</Text>
             <Button title={'이름 변경'} onPress={() => setName('변경이름')}></Button>
             <Text>{name}</Text>
+            <FlatList data={users}
+                renderItem={({ item }) => <Text> {item.name} </Text>}
+                keyExtractor={item => item.id}
+            />
         </View>
     )
 }
