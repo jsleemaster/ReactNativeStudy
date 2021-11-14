@@ -26,6 +26,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TextInput,
   useColorScheme,
   View,
   Image,
@@ -146,13 +147,16 @@ const App = () => {
     // SafeAreaView : 위에 탭쪽을 자동으로 비워줌
     // <SafeAreaView style={styles.container}>
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator mode="modal">
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'Welcome' }}
         />
         <Stack.Screen
+          name="CreatePost"
+          component={CreatePostScreen}
+        />
+        {/* <Stack.Screen
           name="Profile"
           component={ProfileScreen}
           initialParams={{ itemId: 1000 }}  //초기 값을 정해서 넘겨줄수있다
@@ -162,7 +166,7 @@ const App = () => {
           name="Hook"
           component={HookScreen}
           options={{ title: 'Hook' }}
-        />
+        /> */}
         {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
