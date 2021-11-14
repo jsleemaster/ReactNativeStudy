@@ -30,7 +30,8 @@ import {
   useColorScheme,
   View,
   Image,
-  Button
+  Button,
+  Alert
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -100,8 +101,10 @@ const ProfileScreen = ({ navigation, route }) => { //Profile, route를 받아오
 function HomeScreen({ navigation, route }) {
   React.useEffect(() => {
     if (route.params?.post) {
+      //여부를 확인하기 위한 ?.
       // Post updated, do something with `route.params.post`
       // For example, send the post to the server
+      // 원하는 값이 넘어왔는지 확인
     }
   }, [route.params?.post]);
 
