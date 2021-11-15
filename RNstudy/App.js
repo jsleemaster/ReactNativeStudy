@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HookScreen from './Components/Hook'
 
 const Stack = createNativeStackNavigator();
@@ -98,66 +98,95 @@ const ProfileScreen = ({ navigation, route }) => { //Profile, route를 받아오
     </View>
   )
 }
-function HomeScreen({ navigation, route }) {
-  React.useEffect(() => {
-    if (route.params?.post) {
-      //여부를 확인하기 위한 ?.
-      // Post updated, do something with `route.params.post`
-      // For example, send the post to the server
-      // 원하는 값이 넘어왔는지 확인
-    }
-  }, [route.params?.post]);
+//Post homeScreen
+// function HomeScreen({ navigation, route }) {
+//   React.useEffect(() => {
+//     if (route.params?.post) {
+//       //여부를 확인하기 위한 ?.
+//       // Post updated, do something with `route.params.post`
+//       // For example, send the post to the server
+//       // 원하는 값이 넘어왔는지 확인
+//     }
+//   }, [route.params?.post]);
 
+//   return (
+//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+//       <Button
+//         title="Create post"
+//         onPress={() => navigation.navigate('CreatePost')}
+//       />
+//       <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
+//     </View>
+//   );
+// }
+
+// function CreatePostScreen({ navigation, route }) {
+//   const [postText, setPostText] = React.useState('');
+
+//   return (
+//     <>
+//       <TextInput
+//         multiline
+//         placeholder="What's on your mind?"
+//         style={{ height: 200, padding: 10, backgroundColor: 'white' }}
+//         value={postText}
+//         onChangeText={setPostText}
+//       />
+//       <Button
+//         title="Done"
+//         onPress={() => {
+//           // Pass and merge params back to home screen
+//           navigation.navigate({
+//             name: 'Home',
+//             params: { post: postText },
+//             merge: true,
+//           });
+//         }}
+//       />
+//     </>
+//   );
+// }
+
+
+function HomeScreen() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        title="Create post"
-        onPress={() => navigation.navigate('CreatePost')}
-      />
-      <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home!</Text>
     </View>
   );
 }
 
-function CreatePostScreen({ navigation, route }) {
-  const [postText, setPostText] = React.useState('');
-
+function SettingsScreen() {
   return (
-    <>
-      <TextInput
-        multiline
-        placeholder="What's on your mind?"
-        style={{ height: 200, padding: 10, backgroundColor: 'white' }}
-        value={postText}
-        onChangeText={setPostText}
-      />
-      <Button
-        title="Done"
-        onPress={() => {
-          // Pass and merge params back to home screen
-          navigation.navigate({
-            name: 'Home',
-            params: { post: postText },
-            merge: true,
-          });
-        }}
-      />
-    </>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
   );
 }
+
+const Tab = createBottomTabNavigator();
+
 const App = () => {
   return (
     // SafeAreaView : 위에 탭쪽을 자동으로 비워줌
     // <SafeAreaView style={styles.container}>
     <NavigationContainer>
       <Stack.Navigator mode="modal">
+        {/* <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+        /> */}
+        {/* <Stack.Screen
+          name="CreatePost"
+          component={CreatePostScreen}
+        /> */}
         <Stack.Screen
           name="Home"
           component={HomeScreen}
         />
         <Stack.Screen
-          name="CreatePost"
-          component={CreatePostScreen}
+          name="Settings"
+          component={SettingsScreen}
         />
         {/* <Stack.Screen
           name="Profile"
