@@ -171,24 +171,24 @@ const App = () => {
     // SafeAreaView : 위에 탭쪽을 자동으로 비워줌
     // <SafeAreaView style={styles.container}>
     <NavigationContainer>
-      <Stack.Navigator mode="modal">
-        {/* <Stack.Screen
+      {/* <Stack.Navigator mode="modal"> */}
+      {/* <Stack.Screen
           name="Home"
           component={HomeScreen}
         /> */}
-        {/* <Stack.Screen
+      {/* <Stack.Screen
           name="CreatePost"
           component={CreatePostScreen}
         /> */}
-        <Stack.Screen
+      {/* <Stack.Screen
           name="Home"
           component={HomeScreen}
         />
         <Stack.Screen
           name="Settings"
           component={SettingsScreen}
-        />
-        {/* <Stack.Screen
+        /> */}
+      {/* <Stack.Screen
           name="Profile"
           component={ProfileScreen}
           initialParams={{ itemId: 1000 }}  //초기 값을 정해서 넘겨줄수있다
@@ -199,8 +199,12 @@ const App = () => {
           component={HookScreen}
           options={{ title: 'Hook' }}
         /> */}
-        {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
-      </Stack.Navigator>
+      {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
+      {/* </Stack.Navigator> */}
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
     // {/* <Text style={styles.hello}>안녕 세상아~</Text>
     // <View style={{ flexDirection: 'row' }}>
