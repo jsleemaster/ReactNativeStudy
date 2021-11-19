@@ -152,7 +152,7 @@ const ProfileScreen = ({ navigation, route }) => { //Profile, route를 받아오
 function HomeScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
+      <Text>Home</Text>
     </View>
   );
 }
@@ -160,7 +160,7 @@ function HomeScreen() {
 function SettingsScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings !</Text>
+      <Text>Settings</Text>
     </View>
   );
 }
