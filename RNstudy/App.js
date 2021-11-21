@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HookScreen from './Components/Hook'
 
@@ -148,25 +149,45 @@ const ProfileScreen = ({ navigation, route }) => { //Profile, route를 받아오
 //   );
 // }
 
+//Tab 네비게이션
+// function HomeScreen() {
+//   return (
+//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//       <Text>Home</Text>
+//     </View>
+//   );
+// }
 
-function HomeScreen() {
+// function SettingsScreen() {
+//   return (
+//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//       <Text>Settings</Text>
+//     </View>
+//   );
+// }
+
+// const Tab = createBottomTabNavigator();
+
+//drawer 네비게이션
+function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button
+        onPress={() => navigation.navigate('Notifications')}
+        title="Go to notifications"
+      />
     </View>
   );
 }
 
-function SettingsScreen() {
+function NotificationsScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
     </View>
   );
 }
-
-const Tab = createBottomTabNavigator();
-
+const Drawer = createDrawerNavigator();
 const App = () => {
   return (
     // SafeAreaView : 위에 탭쪽을 자동으로 비워줌
@@ -202,7 +223,7 @@ const App = () => {
         /> */}
       {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
       {/* </Stack.Navigator> */}
-      <Tab.Navigator
+      {/* <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
@@ -226,7 +247,11 @@ const App = () => {
       >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
-      </Tab.Navigator>
+      </Tab.Navigator> */}
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+      </Drawer.Navigator>
     </NavigationContainer>
     // {/* <Text style={styles.hello}>안녕 세상아~</Text>
     // <View style={{ flexDirection: 'row' }}>
