@@ -158,15 +158,15 @@ const ProfileScreen = ({ navigation, route }) => { //Profile, route를 받아오
 //   );
 // }
 
-// function SettingsScreen() {
-//   return (
-//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//       <Text>Settings</Text>
-//     </View>
-//   );
-// }
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings</Text>
+    </View>
+  );
+}
 
-// const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 //drawer 네비게이션
 function HomeScreen({ navigation }) {
@@ -188,6 +188,34 @@ function NotificationsScreen({ navigation }) {
   );
 }
 const Drawer = createDrawerNavigator();
+const TabScreen = () => {
+  <Tab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
+
+        if (route.name === 'Home') {
+          iconName = focused
+            ? 'ios-information-circle'
+            : 'ios-information-circle-outline';
+        } else if (route.name === 'Settings') {
+          iconName = focused ? 'ios-list-box' : 'ios-list';
+        }
+
+        // You can return any component that you like here!
+        return <Ionicons name={iconName} size={size} color={color} />;
+      },
+    })}
+    tabBarOptions={{
+      activeTintColor: 'tomato',
+      inactiveTintColor: 'gray',
+    }}
+  >
+    {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
+    <Tab.Screen name="Settings" component={SettingsScreen} />
+  </Tab.Navigator>
+}
+
 const App = () => {
   return (
     // SafeAreaView : 위에 탭쪽을 자동으로 비워줌
@@ -223,34 +251,11 @@ const App = () => {
         /> */}
       {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
       {/* </Stack.Navigator> */}
-      {/* <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
 
-            if (route.name === 'Home') {
-              iconName = focused
-                ? 'ios-information-circle'
-                : 'ios-information-circle-outline';
-            } else if (route.name === 'Settings') {
-              iconName = focused ? 'ios-list-box' : 'ios-list';
-            }
-
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-        })}
-        tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
-        }}
-      >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
-      </Tab.Navigator> */}
-      <Drawer.Navigator initialRouteName="Home">
+      <Drawer.Navigator initialRouteName="Home" drawerContent={ }>
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+        <Drawer.Screen name="Menu" component={TabScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
     // {/* <Text style={styles.hello}>안녕 세상아~</Text>
