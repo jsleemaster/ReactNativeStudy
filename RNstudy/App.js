@@ -33,20 +33,10 @@ import {
   View,
   Image,
   Button,
-  Alert
+  Alert,
+  TouchableOpacity
 } from 'react-native';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // flexDirection: 'column',
-    justifyContent: 'center', //flex-end , flex-start, center , space-between, space-around, space-evenly
-    alignItems: 'center' // flex-start, flex-end , stretch
-  },
-  // hello: {
-  //   color: 'red',
-  // }
-});
 class Love extends Component {
   render() {
 
@@ -188,35 +178,49 @@ function NotificationsScreen({ navigation }) {
   );
 }
 const Drawer = createDrawerNavigator();
-const TabScreen = () => {
-  <Tab.Navigator
-    screenOptions={({ route }) => ({
-      tabBarIcon: ({ focused, color, size }) => {
-        let iconName;
 
-        if (route.name === 'Home') {
-          iconName = focused
-            ? 'ios-information-circle'
-            : 'ios-information-circle-outline';
-        } else if (route.name === 'Settings') {
-          iconName = focused ? 'ios-list-box' : 'ios-list';
-        }
-
-        // You can return any component that you like here!
-        return <Ionicons name={iconName} size={size} color={color} />;
-      },
-    })}
-    tabBarOptions={{
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
-    }}
-  >
-    {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
-    <Tab.Screen name="Settings" component={SettingsScreen} />
-  </Tab.Navigator>
-}
 
 const App = () => {
+  const TabScreen = () => {
+    return (
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Home') {
+              iconName = focused
+                ? 'ios-information-circle'
+                : 'ios-information-circle-outline';
+            } else if (route.name === 'Settings') {
+              iconName = focused ? 'ios-list-box' : 'ios-list';
+            }
+
+            // You can return any component that you like here!
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
+        }}
+      >
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
+    )
+  }
+  const CustomDrawerContent = (props) => {
+    return (
+      <SafeAreaView style={{ flex: 1 }}>
+        <ScrollView>
+          <TouchableOpacity>
+            <Text>SideMenu01</Text>
+          </TouchableOpacity>
+          <Text>SideMenu02</Text>
+        </ScrollView>
+      </SafeAreaView>
+    )
+  }
   return (
     // SafeAreaView : 위에 탭쪽을 자동으로 비워줌
     // <SafeAreaView style={styles.container}>
@@ -252,7 +256,7 @@ const App = () => {
       {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
       {/* </Stack.Navigator> */}
 
-      <Drawer.Navigator initialRouteName="Home" drawerContent={ }>
+      <Drawer.Navigator initialRouteName="Menu" drawerContent={props => <CustomDrawerContent {...props} />}>
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
         <Drawer.Screen name="Menu" component={TabScreen} />
@@ -274,5 +278,15 @@ const App = () => {
   );
 };
 
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // flexDirection: 'column',
+    justifyContent: 'center', //flex-end , flex-start, center , space-between, space-around, space-evenly
+    alignItems: 'center' // flex-start, flex-end , stretch
+  },
+  // hello: {
+  //   color: 'red',
+  // }
+});
 export default App;
