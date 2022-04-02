@@ -8,20 +8,22 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import HookScreen from './Components/Hook'
 
 const Stack = createNativeStackNavigator();
-// const MyStack = () => {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator>
-//         <Stack.Screen
-//           name="Home"
-//           component={HomeScreen}
-//           options={{ title: 'Welcome' }}
-//         />
-//         <Stack.Screen name="Profile" component={ProfileScreen} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// };
+//naver Login
+const iosKeys = {
+  kConsumerKey: "naver client id",
+  kConsumerSecret: "naver secret id",
+  kServiceAppName: "테스트앱(iOS)",
+  kServiceAppUrlScheme: "testapp" // only for iOS
+};
+
+const androidKeys = {
+  kConsumerKey: "naver client id",
+  kConsumerSecret: "naver secret id",
+  kServiceAppName: "테스트앱(안드로이드)"
+};
+
+const initials = Platform.OS === "ios" ? iosKeys : androidKeys;
+
 import {
   SafeAreaView,
   ScrollView,
