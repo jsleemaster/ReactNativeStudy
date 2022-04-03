@@ -183,6 +183,7 @@ const Drawer = createDrawerNavigator();
 
 
 const App = () => {
+  const [naverToken, setNaverToken] = React.useState(null);
   const TabScreen = () => {
     return (
       <Tab.Navigator
