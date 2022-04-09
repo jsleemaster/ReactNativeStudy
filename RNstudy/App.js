@@ -6,7 +6,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HookScreen from './Components/Hook'
-
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+const googleSigninConfigure = () => {
+  GoogleSignin.configure({ webClientId: '본인의 웹클라이언트 ID', })
+}
 const Stack = createNativeStackNavigator();
 //naver Login
 const iosKeys = {
